@@ -30,6 +30,7 @@ class MethodCallHandler implements MethodChannel.MethodCallHandler {
         share.share((String) call.argument("text"), (String) call.argument("subject"));
         result.success(null);
         break;
+      case "shareRawFiles":
       case "shareFiles":
         expectMapArguments(call);
 

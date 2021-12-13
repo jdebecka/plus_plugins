@@ -250,4 +250,25 @@ static UIViewController *TopViewControllerForViewController(UIViewController *vi
   [self share:items withController:controller atSource:origin];
 }
 
++ (void)shareRawFiles:(NSArray *)paths
+       withSubject:(NSString *)subject
+          withText:(NSString *)text
+    withController:(UIViewController *)controller
+          atSource:(CGRect)origin {
+  NSMutableArray *items = [[NSMutableArray alloc] init];
+
+  if (text || subject) {
+    [items addObject:[[SharePlusData alloc] initWithSubject:subject text:text]];
+  }
+
+  for (int i = 0; i < [paths count]; i++) {
+    NSString *path = paths[i];
+
+    NSURL *fileUrl = [NSURL fileURLWithPath:path];
+    [items addObject:fileUrl];
+  }
+
+  [self share:items withController:controller atSource:origin];
+}
+
 @end
