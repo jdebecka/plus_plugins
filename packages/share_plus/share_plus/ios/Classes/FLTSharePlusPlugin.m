@@ -233,18 +233,9 @@ static UIViewController *TopViewControllerForViewController(UIViewController *vi
     NSString *path = paths[i];
     NSString *pathExtension = [path pathExtension];
     NSString *mimeType = mimeTypes[i];
-    if ([pathExtension.lowercaseString isEqualToString:@"jpg"] ||
-        [pathExtension.lowercaseString isEqualToString:@"jpeg"] ||
-        [pathExtension.lowercaseString isEqualToString:@"png"] ||
-        [mimeType.lowercaseString isEqualToString:@"image/jpg"] ||
-        [mimeType.lowercaseString isEqualToString:@"image/jpeg"] ||
-        [mimeType.lowercaseString isEqualToString:@"image/png"]) {
-      UIImage *image = [UIImage imageWithContentsOfFile:path];
-      [items addObject:image];
-    } else {
-      NSURL *fileUrl = [NSURL fileURLWithPath:path];
-      [items addObject:fileUrl];
-    }
+
+    NSURL *fileUrl = [NSURL fileURLWithPath:path];
+    [items addObject:fileUrl];
   }
 
   [self share:items withController:controller atSource:origin];
