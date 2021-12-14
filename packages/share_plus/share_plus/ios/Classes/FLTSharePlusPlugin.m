@@ -236,7 +236,7 @@ static UIViewController *TopViewControllerForViewController(UIViewController *vi
 
     NSURL *fileUrl = [NSURL fileURLWithPath:path];
     NSData *fileData = [NSData dataWithContentsOfURL:fileUrl];
-    [itemqs addObject:fileData];
+    [items addObject:fileData];
   }
 
   [self share:items withController:controller atSource:origin];
