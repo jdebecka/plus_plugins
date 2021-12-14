@@ -240,7 +240,7 @@ static UIViewController *TopViewControllerForViewController(UIViewController *vi
         [mimeType.lowercaseString isEqualToString:@"image/jpg"] ||
         [mimeType.lowercaseString isEqualToString:@"image/jpeg"] ||
         [mimeType.lowercaseString isEqualToString:@"image/png"]) {
-      UIImage *image = [NSData dataWithContentsOfURL:path];
+      NSData *image = [NSData dataWithContentsOfURL:path];
       [items addObject:image];
     } else {
       NSURL *fileUrl = [NSURL fileURLWithPath:path];
